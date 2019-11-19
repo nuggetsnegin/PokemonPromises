@@ -17,8 +17,9 @@
     const lookforFloof = new Promise( (fulfill, reject) =>{ /*fulfill and reject built into promise obj*/
         /*creating promise object*/
         if (isTherePupHere){
-            /* do something */
+            fulfill(`pet the doggie!!`);
         }else{
+            reject(`let's go to the park since there's no doggies here`);
             /*do different thing*/
         }
 

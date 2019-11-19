@@ -1,14 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<style>
+    ul {
+        list-style: none;
+        padding: 20px;
+    }
+
+    li {
+        padding: 10px;
+        text-transform: uppercase;
+    }
+</style>
+
 <head>
     <meta charset="UTF-8">
     <title>JavaScript Promises</title>
 </head>
 
 <body>
-    <h1>Nothing to see here!</h1>
-    <h2>Open up the console => </h2>
+    <h1>POKEMON</h1>
+    <h2>THE OG 151 POKEMON ARE: </h2>
+    <div class="pokemon">
+        <ul class="pokemon-list"></ul>
+    </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script>
         $(function () {
@@ -66,7 +81,8 @@
             /*GET POKEMON 1-101*/
 
             function getPokemon(number) {
-                return $.ajax({ /*returns the promise object*/
+                return $.ajax({
+                    /*returns the promise object*/
                     url: `https://pokeapi.co/api/v2/pokemon/${number}/`,
                     dataType: 'json',
                     method: 'GET'
@@ -90,8 +106,9 @@
                     const onlyPokemon = caughtPokemon.map(pokemon => {
                         return pokemon[0];
                     });
-                    onlyPokemon.forEach ( (pokemon) => {
-                        console.log(`${pokemon.name} is Pokemon number ${pokemon.id}!`);
+                    onlyPokemon.forEach((pokemon) => {
+                        $('.pokemon-list').append(
+                            `<li>${pokemon.name} is Pokemon number ${pokemon.id}!</li>`);
                     });
                 });
 

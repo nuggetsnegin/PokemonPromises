@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript Promises</title>
+</head>
+<body>
+    <h1>Nothing to see here!</h1>
+    <h2>Open up the console => </h2>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script>
+    $(function() {
+
+
+      const pokemonApp = {};
+      pokemonApp.url = 'https://pokeapi.co/api/v2/pokemon/1/';
+
+      // When we store an AJAX request in a variable called pokemonApp.getPokemon, we are storing a promise in a variable:
+      pokemonApp.getPokemon = $.ajax({
+        url: pokemonApp.url,
+        method: 'GET',
+        dataType: 'JSON',
+      });
+
+      // When we console.log the variable pokemonApp.getPokemon, we get an object with a bunch of methods:
+      console.log(pokemonApp.getPokemon);
+
+
+
+    });
+  </script>
+</body>
+</html>

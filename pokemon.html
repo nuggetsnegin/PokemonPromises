@@ -38,30 +38,48 @@
             /*MULTIPLE PROMISES*/
 
             // create a variable to hold the first promise
-            pokemonApp.pokemonOne = $.ajax({
-                url: 'https://pokeapi.co/api/v2/pokemon/1/',
-                dataType: 'json',
-                method: 'GET'
-            });
-            // create a variable to hold the second promise
-            pokemonApp.pokemonTwo = $.ajax({
-                url: 'https://pokeapi.co/api/v2/pokemon/2/',
-                dataType: 'json',
-                method: 'GET'
-            });
+            //     pokemonApp.pokemonOne = $.ajax({
+            //         url: 'https://pokeapi.co/api/v2/pokemon/1/',
+            //         dataType: 'json',
+            //         method: 'GET'
+            //     });
+            //     // create a variable to hold the second promise
+            //     pokemonApp.pokemonTwo = $.ajax({
+            //         url: 'https://pokeapi.co/api/v2/pokemon/2/',
+            //         dataType: 'json',
+            //         method: 'GET'
+            //     });
 
-            /*better than promise.all more browser compatibility*/
+            //     /*better than promise.all more browser compatibility*/
 
-            /*when we get the promises form .then - do something when they succeed and do something when they fail, when waits for BOTH ajax calls*/
-            $.when(pokemonApp.pokemonOne, pokemonApp.pokemonTwo)
-                .then( (caughtPokemonOne, caughtPokemonTwo) => {
-                    console.log(caughtPokemonOne[0]);
-                    console.log(caughtPokemonTwo[0]);
-                })
-                .fail( (errorOne, errorTwo) => {
-                    console.log(errorOne);
-                    console.log(erroTwo);
-                });
+            //     /*when we get the promises form .then - do something when they succeed and do something when they fail, when waits for BOTH ajax calls*/
+            //     $.when(pokemonApp.pokemonOne, pokemonApp.pokemonTwo)
+            //         .then( (caughtPokemonOne, caughtPokemonTwo) => {
+            //             console.log(caughtPokemonOne[0]);
+            //             console.log(caughtPokemonTwo[0]);
+            //         })
+            //         .fail( (errorOne, errorTwo) => {
+            //             console.log(errorOne);
+            //             console.log(erroTwo);
+            //         });
+
+            /*GET POKEMON 1-101*/
+
+            function getPokemon(number) {
+                $.ajax({
+                        url: `https://pokeapi.co/api/v2/pokemon/${number}/`,
+                        dataType: 'json',
+                        method: 'GET'
+                    })
+                    .then((caughtPokemon) => {
+                        console.log(`${caughtPokemon.name} is Pokémon number ${caughtPokemon.id}.`);
+                    });
+            }
+
+            /*start from first pokemon until 101st*/
+            for (let i = 1; i <= 101; i++){
+                getPokemon(i);
+            }
 
 
         });

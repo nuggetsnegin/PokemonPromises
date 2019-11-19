@@ -66,11 +66,12 @@
             /*GET POKEMON 1-101*/
 
             function getPokemon(number) {
-                return $.ajax({
+                return $.ajax({ /*returns the promise object*/
                     url: `https://pokeapi.co/api/v2/pokemon/${number}/`,
                     dataType: 'json',
                     method: 'GET'
-                }); /*returns a promise object, i.e. promise of pokemon(i)*/
+                }); /*remove .then chain, because the promise resolves whether its fufilled or rejected so nothing is returned */
+                /*returns a promise object, i.e. promise of pokemon(i)*/
             }
             /*create an array to store and order the promise*/
             const pokeBag = []; /*empty array*/
@@ -83,7 +84,7 @@
             // console.log(pokeBag); /*promise object not pokemon*/
 
 
-            $.when(pokeBag) /*same promise as pokeBag 😱 */
+            $.when(...pokeBag) /*using spread*/
                 .then((caughtPokemon) => {
                     console.log(caughtPokemon);
                 });

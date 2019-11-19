@@ -1,15 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<link href="https://fonts.googleapis.com/css?family=Bungee+Shade|Press+Start+2P&amp;display=swap" rel="stylesheet">
 <style>
+    body {
+        text-align: center;
+        font-family: 'Press Start 2p', cursive;
+        font-size: 62.5%;
+    }
+
+    h1{
+        font-family: 'Bungee Shade', cursive;
+        font-size: 3rem;
+    }
+
+    .wrapper {
+        width: 600px;
+        margin: 0 auto;
+    }
+
     ul {
         list-style: none;
-        padding: 20px;
+        display: flex;
+        flex-direction: column;
     }
 
     li {
-        padding: 10px;
         text-transform: uppercase;
+        align-self: center;
+        margin-bottom: 2%;
+    }
+
+    img {
+        align-content: center;
+        border-radius: 50px;
+        margin-top: 50%;
+        background-color: rgb(60, 60, 60);
     }
 </style>
 
@@ -19,10 +44,12 @@
 </head>
 
 <body>
-    <h1>POKEMON</h1>
-    <h2>THE OG 151 POKEMON ARE: </h2>
-    <div class="pokemon">
-        <ul class="pokemon-list"></ul>
+    <div class="wrapper">
+        <h1>POKEMON</h1>
+        <h2>THE ORIGINAL 151 POKEMON ARE: </h2>
+        <div class="pokemon">
+            <ul class="pokemon-list"></ul>
+        </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script>
@@ -108,7 +135,8 @@
                     });
                     onlyPokemon.forEach((pokemon) => {
                         $('.pokemon-list').append(
-                            `<li>${pokemon.name} is Pokemon number ${pokemon.id}!</li>`);
+                            `<li><img src=${pokemon.sprites.front_shiny}></li> <li>${pokemon.name} is Pokemon number ${pokemon.id}</li>`
+                        );
                     });
                 });
 

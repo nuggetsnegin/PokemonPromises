@@ -28,7 +28,7 @@
         .then( (caughtPokemon) =>{
         console.log(caughtPokemon);
       })
-      .fail( (error) =>{
+      .fail( (error) =>{ /*no catch in JQuery called .fail */
         console.log(error);
         console.log('pokemon not found!');
       });

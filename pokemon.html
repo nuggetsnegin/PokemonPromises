@@ -50,6 +50,19 @@
                 method: 'GET'
             });
 
+            /*better than promise.all more browser compatibility*/
+
+            /*when we get the promises form .then - do something when they succeed and do something when they fail, when waits for BOTH ajax calls*/
+            $.when(pokemonApp.pokemonOne, pokemonApp.pokemonTwo)
+                .then( (caughtPokemonOne, caughtPokemonTwo) => {
+                    console.log(caughtPokemonOne[0]);
+                    console.log(caughtPokemonTwo[0]);
+                })
+                .fail( (errorOne, errorTwo) => {
+                    console.log(errorOne);
+                    console.log(erroTwo);
+                });
+
 
         });
     </script>

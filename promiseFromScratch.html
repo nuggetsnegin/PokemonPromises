@@ -13,14 +13,13 @@
     const isTherePupHere = true;
     
 
-    /*my promise*/
+    /*my promise~ promise expects a parameter: callback function, fulfill reject are callbacks*/
     const lookforFloof = new Promise( (fulfill, reject) =>{ /*fulfill and reject built into promise obj*/
         /*creating promise object*/
         if (isTherePupHere){
             fulfill(`pet the doggie!!`);
         }else{
             reject(`let's go to the park since there's no doggies here`);
-            /*do different thing*/
         }
 
     });

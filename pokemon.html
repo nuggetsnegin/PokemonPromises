@@ -85,7 +85,7 @@
 
 
             $.when(...pokeBag) /*using spread*/
-                .then((caughtPokemon) => {
+                .then((...caughtPokemon) => {
                     console.log(caughtPokemon);
                 });
 

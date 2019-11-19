@@ -14,7 +14,7 @@
     
 
     /*my promise*/
-    const lookforFloof = new Promise( () =>{
+    const lookforFloof = new Promise( (fulfill, reject) =>{ /*fulfill and reject built into promise obj*/
         /*creating promise object*/
         if (isTherePupHere){
             /* do something */

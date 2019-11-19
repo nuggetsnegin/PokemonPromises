@@ -11,9 +11,8 @@
   <script>
     $(function() {
 
-
       const pokemonApp = {};
-      pokemonApp.url = 'https://pokeapi.co/api/v2/pokemon/1/';
+      pokemonApp.url = 'https://pokeapi.co/api/v2/pokemon/1/'; /*bulbasaur*/
 
       // When we store an AJAX request in a variable called pokemonApp.getPokemon, we are storing a promise in a variable:
       pokemonApp.getPokemon = $.ajax({
@@ -25,6 +24,14 @@
       // When we console.log the variable pokemonApp.getPokemon, we get an object with a bunch of methods:
       console.log(pokemonApp.getPokemon);
 
+      pokemonApp.getPokemon
+        .then( (caughtPokemon) =>{
+        console.log(caughtPokemon);
+      })
+      .fail( (error) =>{
+        console.log(error);
+        console.log('pokemon not found!');
+      });
 
 
     });
